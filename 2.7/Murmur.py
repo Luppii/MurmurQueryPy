@@ -162,10 +162,10 @@ class MurmurQuery(object):
 
     def query(self):
         """ * Query the server """
-        self.connect()
-        self.send_query()
-        self.parse_response()
-        if self.response:
-            self.online = True
-        self.close()
+        if self.connect():
+            self.send_query()
+            self.parse_response()
+            if self.response:
+                self.online = True
+            self.close()
 
